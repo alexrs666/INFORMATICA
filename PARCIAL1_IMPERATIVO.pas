@@ -50,7 +50,7 @@ procedure cargarArbolyContador(var a:arbol;var v:Vector);
 			if(e.dniC<>0)then begin
 				e.cod_sucursal:=random(10)+1;
 				e.num_Fac:=random(10000)+1;
-				e.monto:=random(10000)/random(10)*1;
+				e.monto:=random(10000)/(random(10) + 1);
 			end;
 		end;
 		procedure insertarAdelante(var l:lista;e:registroFac);
@@ -140,19 +140,22 @@ begin
 		write('esta es la cantida de facturas mayores al monto:',cantF);
 end;
 procedure MayorCantVentas(v:Vector;var maxSucur:integer);
-		procedure mayorCanVen(v:Vector;var m:integer;punt:integer);
+		procedure mayorCanVen(v:Vector;var m,maxSucur:integer;punt:integer);
 		begin
-			if(punt<=DF)then
-				if(v[punt]>m)then
+			if(punt<=DF)then begin
+				if(v[punt]>m)then begin
 					m:=v[punt];
-				mayorCanVen(v,m,punt +1);
-		end;
+                    maxSucur:=punt;
+                end;
+                mayorCanVen(v,m,maxSucur,punt +1);
+            end;
+        end;
 var
 	m:integer;
 begin
 	m:=-1;
-	mayorCanVen(v,m,1);
-	maxSucur:=m;
+    maxSucur:=0;
+	mayorCanVen(v,m,maxSucur,1);
 end;
 var
 	a:arbol;
