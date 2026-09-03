@@ -112,7 +112,7 @@ begin
     readln(dni);
     CantDniMenores:=contarNodos(a,dni);
 end;
-function MaxMateriales(l:lista):string;
+procedure MaxMateriales(l:lista;var mxMaterial:string);
         procedure Maximo(mate:string;cant:integer;var max:integer;var maxMate:string);
         begin
             if(cant>max)then begin
@@ -133,13 +133,13 @@ var
 begin
     max:=-1;
     CalcularMaximo(l,max,MaxM);
-    CantMateriales:=MaxM;
+    mxMaterial:=MaxM;
 end;
 var
     a:arbol;
     l:lista;
     cantDniMen:integer;
-    MaxCantMate:string;
+    MaxMate:string;
 begin
     a:=nil;
     l:=nil;
@@ -148,5 +148,5 @@ begin
     //inciso B
     cantDniMen:=CantDniMenores(a);
     //inciso C
-    MaxCantMate:=MaxMateriales(l);
+    MaxMateriales(l,MaxMate);
 end.
