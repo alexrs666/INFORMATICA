@@ -97,10 +97,27 @@ function DevolverMayores(a:arbol;codP,cantPrueba:integer):integer;
 begin
 	DevolverMayores:=EncontrarCodigoPostal(a,codP,cantPrueba);
 end;
+function RetonarRangoCod(a:arbol;lm,ls:integer):integer;
+		function cantRangosCod(a:arbol;li,ls:integer):integer;
+		begin
+			if(a=nil)then
+				cantRangosCod:=0
+			else if(a^.elem.cod_pos>li)then
+				cantRangosCod:=cantRangosCod(a^.HD,li,ls)
+			else if(a^.elem.cod_poas<ls)then
+				cantRangosCod:=cantRangosCod(a^.HI,li,ls)
+			else
+				cantRangosCod:=1+cantRangosCod(a^.HI,li,ls)+cantRangosCod(a^.HD,li,ls);
+		end;
+begin
+	RetonarRangoCod:=cantRangosCod(a,li,ls);
+end;
 var
 	a:arbol;
 	codigoPos,CantidadMese:integer;
 	cantPrueba:ineteger;
+	limI,limS:integer;
+	cantRan:integer;
 begin
 	randomize;
 	a:=nil;
@@ -111,5 +128,7 @@ begin
 	readln(CantidadMese);
 	CantidadMese:=DevolverMayores(a,codigoPos,CantPrueba);
 	//inciso c
-	
+	readln(limI);
+	readln(limS);
+	cantRan:=RetonarRangoCod(a,limI,limS);
 end.
