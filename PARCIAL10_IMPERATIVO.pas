@@ -1,4 +1,5 @@
-{La fiesta nacional de la empanada artesanal necesica un slere pare ts
+{TURNO:H   PARCIAL IMPERATIVO FECHA:08/09/2026
+La fiesta nacional de la empanada artesanal necesica un slere pare ts
 presentadas.
 a) Implementar un módulo que lea información de las empanadas. De cada empanada se conoce: categoria de
     empanada (1 .. 10), DNI del chef, materia prima principal y forma de cocción. La lectura finaliza con DNI del chel
