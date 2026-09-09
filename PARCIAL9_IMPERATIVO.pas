@@ -1,12 +1,12 @@
-{TURNO:F   PARCIAL IMPERATIVO FEHCA:08/09/2026
+{TURNO:F   PARCIAL IMPERATIVO FECHA:08/09/2026
 Una agencia de alquiler de vehículos necesita un sistema para procesar la información de sus alquileres. De cada alquiler
 se conoce: patente, fecha, DNI del cliente y cantidad de días alquilados.
 a) Implementar un módulo que lea información de los alquileres y retorne una estructura de datos eficiente para la
-búsqueda por DNI y que para cada DNI contenga sus alquileres. La lectura finaliza al ingresar el valor 0 para un DNI.
+    búsqueda por DNI y que para cada DNI contenga sus alquileres. La lectura finaliza al ingresar el valor 0 para un DNI.
 b) Realizar un módulo que reciba la estructura generada en el inciso a) y retorne otra estructura que almacene para
-patente, la cantidad total de días que se alquiló.
+    patente, la cantidad total de días que se alquiló.
 c) Realizar un módulo recursivo que reciba la estructura generada en inciso b) y retorne patente del vehículo con
-mayor cantidad de días alquilados.}
+    mayor cantidad de días alquilados.}
 program PARCIAL9_IMPERATIVO;
 type
 	alquiler=record
