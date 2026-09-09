@@ -1,4 +1,4 @@
-program eje;
+program PARCIAL7_IMPERATIVO;
 const DF=10;
 type
 	subDiag=1..DF;
