@@ -53,6 +53,22 @@ procedure CargarArbolyLista(var a:arbol;var l:lista);
                     readln(e.formaCoccion);
                 end;
             end;
+            procedure insertarEmpanada(var a:arbol;DniBus:integer);
+            begin
+                if(a=nil)then begin
+                    new(a);
+                    a^.HI:=nil;
+                    a^.HD:=nil;
+                    a^.elem.dniChef:=DniBus;
+                    a^.elem.canTotal:=1;
+                end
+                else if(DniBus=a^.elem.dniChef)then
+                    a^.elem.canTotal:=a^.elem.canTotal + 1
+                else if(DniBus<a^.elem.dniChef)then
+                    insertarEmpanada(a^.HI,DniBus)
+                else
+                    insertarEmpanada(a^.HD,DniBus);
+            end;
             procedure ActualizarListaOrdenado(var l:lista;materia:string);
             var
                act,ant,nue:lista;
