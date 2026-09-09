@@ -1,4 +1,5 @@
-{Una empresa de delivery requiere el procesamiento de sus entregas durante el mes de julio de 2026.
+{TURNO:G   PARCIAL IMPERATIVO FECHA:08/09/2026
+Una empresa de delivery requiere el procesamiento de sus entregas durante el mes de julio de 2026.
 a) Implementar un módulo que lea las entregas. De cada entrega se lee código de entrega, DNI de cliente, día y
 categoría de la entrega (de 1 a 10). La lectura finaliza con el DNI de cliente 0. Se sugiere utilizar el módulo leerEntrega(). Se
 deben retornar 2 estructuras de datos:
