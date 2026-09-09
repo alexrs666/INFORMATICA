@@ -53,54 +53,28 @@ procedure CargarArbolyLista(var a:arbol;var l:lista);
                     readln(e.formaCoccion);
                 end;
             end;
-            procedure insertarEmpanada(var a:arbol;DniBus:integer);
-            begin
-                if(a=nil)then begin
-                    new(a);
-                    a^.HI:=nil;
-                    a^.HD:=nil;
-                    a^.elem.dniChef:=DniBus;
-                    a^.elem.canTotal:=1;
-                end
-                else if(DniBus=a^.elem.dniChef)then
-                    a^.elem.canTotal:=a^.elem.canTotal + 1
-                else if(DniBus<a^.elem.dniChef)then
-                    insertarEmpanada(a^.HI,DniBus)
-                else
-                    insertarEmpanada(a^.HD,DniBus);
-            end;
-            procedure insertarOrdenado(var l:lista;materia:string);
+            procedure ActualizarListaOrdenado(var l:lista;materia:string);
             var
-                ant,act,nue:lista;
+               act,ant,nue:lista;
             begin
-                new(nue);
-                nue^.elem.m_prima:=materia;
-                nue^.elem.canMat:=1;
-
-                ant:=l;
                 act:=l;
+                ant:=l;
                 while(act<>nil)and(act^.elem.m_prima<materia)do begin
                     ant:=act;
                     act:=act^.sig;
                 end;
-                if(act = l)then
-                    l:=nue
-                else
-                    ant^.sig:=nue;
-                nue^.sig:=act;
-            end;
-            procedure ActualizarLista(var l:lista;materia:string);
-            var
-               aux:lista; 
-            begin
-                aux:=l;
-                while(aux<>nil)and(aux^.elem.m_prima<>materia)do begin
-                    aux:=aux^.sig;
+                if(act<>nil)and(act^.elem.m_prima=materia)then
+                    act^.elem.canMat:=act^.elem.canMat +1
+                else begin
+                    new(nue);
+                    nue^.elem.m_prima:=materia;
+                    nue^.elem.canMat:=1;
+                    nue^.sig:=act;
+                    if(act=l)then
+                        l:=nue
+                    else
+                        ant^.sig:=nue;
                 end;
-                if(aux<>nil)then
-                    aux^.elem.canMat:=aux^.elem.canMat +1
-                else
-                    insertarOrdenado(l,materia);
             end;
 var
     e:empanadas;
@@ -110,7 +84,7 @@ begin
     leerEmpanada(e);
     while(e.dniChef<>0)do begin
         insertarEmpanada(a,e.dniChef);
-        ActualizarLista(l,e.m_prima);
+        ActualizarListaOrdenado(l,e.m_prima);
         leerEmpanada(e);
     end;
 end;
