@@ -47,7 +47,7 @@ procedure cargarArbol(var a:arbol);
             procedure leerBoleto(var b: boleto;var c: conj);
             begin
                 b.dni_cliente := Random(10000);
-                if (b.dni_cliente > 0) then begin
+                if (b.dni_cliente <> 0) then begin
                     b.cod_boleto := Random(101) + 100;
                     while (b.cod_boleto IN c) do
                         b.cod_boleto := Random(101)+ 100;
@@ -162,7 +162,7 @@ end;
 var
     a:arbol;
     v:vector; 
-    
+
     destino1,destino2:string;
     dniBuscado:integer;
     cantViajesDni:integer;
