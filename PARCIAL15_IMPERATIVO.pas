@@ -26,7 +26,7 @@ type
 procedure cargarArbol(var a:arbol);
             procedure leerAlquiler(var alq:alquiler);
             begin
-                alq.dniCli:=random(1000);
+                alq.dniCli:=random(10);
                 if(alq.dniCli<>0)then begin
                     alq.dia:=random(31)+1;
                     alq.mes:=random(DF)+1;
@@ -105,6 +105,22 @@ function retornarCanTotalViajes(a:arbol;dni1,dni2:integer):integer;
 begin
     retornarCanTotalViajes:=BuscarDnis(a,dni1,dni2);
 end;
+procedure imprimirArbol(a:arbol);
+        procedure imprimirVector(v:vector);
+        var i:subMes;
+        begin
+            for i:=1 to DF do
+                writeln('EN ESTE MES:',i,' hubo:',v[i],' cantidad de alquileres');
+        end;
+begin
+    if(a<>nil)then begin
+        imprimirArbol(a^.HI);
+        writeln('este dni:',a^.elem.dniCli ,' su monto es de :',a^.elem.montoTotal:0:2);
+        writeln('///////////////////////////////');
+        imprimirVector(a^.elem.vmes);
+        imprimirArbol(a^.HD);
+    end;
+end;
 var
     a:arbol;
 
@@ -117,9 +133,14 @@ begin
     //inciso A
     cargarArbol(a);
     //inciso B
+    imprimirArbol(a);
     MontoDniMax:=retornarMontoDniMax(a);
+    writeln('este es el monto del dni mas grande:',MontoDniMax:0:2);
     //inciso C
+    write('ingrese un dni de cliente:');
     readln(dniCLi1);
+    write('ingrese otro dni de cliente:');
     readln(dniCli2);
     canTotalV:=retornarCanTotalViajes(a,dniCLi1,dniCli2);
+    writeln('esta es la cantidad Total de viajes entre los dni recibidos:',canTotalV);
 end.
