@@ -19,12 +19,13 @@ public class P1_EJE5_JAVA {
         
         int i,j;
         final int DF=5;
-        final int DC=3;
+        final int DC=4;
         double sumarCalificacion=0;
         int restaurante[][] = new int [DF][DC];
         
         for(i=0;i<DF;i++){
             for(j=0;j<DC;j++){
+                //PROBA LEERLO
                 int calificacion = 1 + GeneradorAleatorio.generarInt(10);
                 restaurante[i][j]=calificacion;
             }
