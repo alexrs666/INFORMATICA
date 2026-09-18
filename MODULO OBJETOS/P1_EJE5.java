@@ -37,6 +37,7 @@ public class P1_EJE5_JAVA {
             }
             prom=(sumarCalificacion/DF);
             System.out.println("este aspecto:"+j+" tiene en promedio:"+prom);
+            sumarCalificacion=0;
         }
     }
 }
