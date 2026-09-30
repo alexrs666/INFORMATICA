@@ -36,12 +36,12 @@ public class Jugadores extends Empleado {
         this.numGoles = numGoles;
     }
     public double calcularEfectividad(){
-        return (double)((getNumPartidos()*getNumGoles())/getAntiguedad());
+        return (double)((getNumPartidos()/getNumGoles()));
     }
     public double calcularSueldoAcobrar(){
         double sueldoBasico=calcularSueldo();
         if(calcularEfectividad()>0.5)
-            return sueldoBasico*2;
+            return sueldoBasico + getSueldo();
         else
             return sueldoBasico;
     }
