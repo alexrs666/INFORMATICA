@@ -54,36 +54,6 @@ public abstract class Estacion {
         }
         return maxTemp;
     }
-    //INCISO E
-    public String reporteAnual(){
-        String reporte = getNombre()+" ("+ getLatitud()+" - "+ getLongitud()+")";
-        double prom;
-        
-        for(int i=0;i<getN();i++){
-            prom=0;
-            for(int j=0;j<12;j++){
-                prom+=temperatura[i][j];
-            }
-            reporte+= " Año"+(getA()+i)+": "+prom+" grados";
-        }
-        return reporte;
-    }
-    
-    public String reporteMensual(){
-        String reporte= getNombre()+" ("+ getLatitud()+" - "+ getLongitud()+")";
-        double prom;
-        String meses[]= {"-enero","-febrero","-marzo","-abril","-mayo","-junio","-julio","-agosto","-septiembre","-octubre","-noviembre","-diciembre"};
-        for(int j=0;j<12;j++){
-            prom=0;
-            for(int i=0;i<getN();i++){
-                prom+=temperatura[i][j];
-            }
-            reporte+=meses[j+1]+": "+prom+" grados";
-        }
-        return reporte;
-    }
-    //
-    
     public int getA() {
         return A;
     }
@@ -125,7 +95,9 @@ public abstract class Estacion {
     }
 
     public String toString() {
-        return "Estacion{" + "nombre=" +getNombre()+ ", latitud=" +getLatitud()+ ", longitud=" + getLongitud() + ", promedios:"+this.reportePromedios();
+        String aux;
+        aux= "Estacion{" + "nombre=" +getNombre()+ ", latitud=" +getLatitud()+ ", longitud=" + getLongitud();
+        return aux +"promedios:"+"\n"+this.reportePromedios();
     }
     public abstract String reportePromedios();
 }

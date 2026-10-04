@@ -17,15 +17,15 @@ public class SistemaAnual extends Estacion {
     }
     public String reportePromedios(){
         String reporte="";
-        int DF= getA()+getN();
+        int DF= this.getA()+ this.getN();
         
-        for (int i=getA();i < DF;i++){
+        for (int i= this.getA();i < DF;i++){
             double sumasTemp=0;
             for(int j=1;j<=12;j++){
-                sumasTemp+= obtenerTemp(i,j);
+                sumasTemp+= this.obtenerTemp(i,j);
             }
             double prom=(sumasTemp/12);
-            reporte += "-Año " + i +": "+ prom + "grados";
+            reporte += "-Año " + i +": "+ prom + " oC;\n";
         }
         return reporte;
     }
