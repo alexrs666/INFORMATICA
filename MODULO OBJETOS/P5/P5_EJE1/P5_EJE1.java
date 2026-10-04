@@ -50,7 +50,7 @@ public class P5_EJE1_JAVA {
         
         String [] nombres = {"Alex Rosa","juan perez junior","Alex Perez"};
         String [] especialidades = {"Senior","BDD","Product Owner"};
-        for(int i=0;i<3;i++){
+        for(int i=0;i<DF;i++){
             vecInv[i] = new Investigador(nombres[i],GeneradorAleatorio.generarInt(5)+1,especialidades[i]);
             
             p1.agregarInvestigador(vecInv[i]);
