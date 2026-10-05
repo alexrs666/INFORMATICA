@@ -25,13 +25,11 @@ public class EventoOcasional extends Recital{
     public double calcularCosto(){
         double montoTot=0;
         String eventos [] = {"a beneficio","show de TV","show privado"};
-        if(getMotivo().equals(eventos[0]))
-            montoTot +=0;
-        else if(getMotivo().equals(eventos[1]))
-            montoTot += 50000;
-        else
+        if(getMotivo().equals(eventos[1]))
+            montoTot +=50000;
+        else if(getMotivo().equals(eventos[2]))
             montoTot += 150000;
-        
+      
         return montoTot;
     }
     public void actuacion(){
@@ -68,5 +66,4 @@ public class EventoOcasional extends Recital{
     public void setDia(Fecha dia) {
         this.dia = dia;
     }
-    
 }

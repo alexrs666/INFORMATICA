@@ -14,16 +14,16 @@ public class Gira extends Recital{
     private String nombre;
     private Fecha [] fecha;
     private int fechaAct;
-    private int DL;
+    private int DL,DF;
 
     public Gira(String nomBanda,int cantTem,String nombre,int cantMax) {
         super(nomBanda,cantTem);
         setNombre(nombre);
         this.DL = 0;
         this.fechaAct = 0;
-        this.fecha = new Fecha[cantMax];
+        this.DF = cantMax;
+        this.fecha = new Fecha[this.DF];
     }
-    
     public String getNombre() {
         return nombre;
     }
@@ -33,7 +33,7 @@ public class Gira extends Recital{
     }
     
     public void agregarFechas(Fecha fechaGira){
-        if(this.DL<this.fecha.length)
+        if(this.DL<this.DF)
             this.fecha[this.DL++]=fechaGira;
     }
     

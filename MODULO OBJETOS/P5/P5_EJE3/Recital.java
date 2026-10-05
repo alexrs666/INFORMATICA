@@ -13,20 +13,21 @@ package practicas_java.Practica_5.P5_EJE3_JAVA;
 public abstract class Recital {
     private String nombreBanda;
     private String temas[];
-    private int DL;
+    private int DL,DF;
 
     public Recital(String nombreBanda, int cantTem) {
         setNombreBanda(nombreBanda);
         this.DL = 0;
-        this.temas = new String [cantTem];
+        this.DF = cantTem;
+        this.temas = new String [this.DF];
     }
     public void agregarTema(String tema){
-        if(this.DL<this.temas.length)
+        if(this.DL < this.DF)
             this.temas[this.DL++] = tema;
     }
     
     public void actuacion(){
-        for(int i=0; i<this.temas.length;i++)
+        for(int i=0; i<this.DL;i++)
             System.out.println("somos:"+getNombreBanda()+" y a continuacion tocaremos:"+this.temas[i]);
     }
     
@@ -37,4 +38,7 @@ public abstract class Recital {
     public void setNombreBanda(String nombreBanda) {
         this.nombreBanda = nombreBanda;
     }
+    
+    public abstract double calcularCosto();
+    
 }
