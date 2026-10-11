@@ -20,14 +20,18 @@ public class CoroPorHileras extends Coro{
         this.DH = cantHileras;
         this.DI = cantIntegrantes;
         this.corista = new Corista[this.DH][this.DI];
-        for(int i=0;i<this.DH;i++){
+        
+        /*for(int i=0;i<this.DH;i++){
             for(int j=0;j<this.DI;j++)
                 this.corista[i][j]= null;
         }
+        */
     }
     public void agregarCorista(Corista corista){
-        this.corista[this.DL/this.DI][this.DL%this.DI]=corista;
-        this.DL ++;
+        if(!estaLleno()){
+            this.corista[this.DL/this.DI][this.DL%this.DI]=corista;
+            this.DL ++;
+        }
     }
     public boolean estaLleno(){
         return this.DL == this.DH * this.DI;
@@ -52,11 +56,8 @@ public class CoroPorHileras extends Coro{
 
     public String toString(){
         String aux="datos del coro:"+super.toString()+"\n";
-        for(int i=0;i<this.DH;i++){
-            for(int j=0;j<this.DI;j++){
-                if(this.corista[i][j] !=null )
-                   aux+="hilera:"+(i+1)+" pos:"+(j+1)+":"+this.corista[i][j].toString()+"\n";
-            }
+        for(int i=0;i<this.DL;i++){
+            aux+=" :"+this.corista[i/this.DI][i%this.DI].toString()+"\n";
         }
         return aux;
     }
