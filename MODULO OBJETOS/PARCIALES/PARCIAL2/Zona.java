@@ -33,7 +33,7 @@ public class Zona {
         return total;
     }
     public String toString(){
-        String aux="";
+        String aux=" denominacion:"+denominacion+"\n";
         for(int i=0;i<this.DL;i++){
             aux+=this.mediciones[i].toString()+"\n";
         }

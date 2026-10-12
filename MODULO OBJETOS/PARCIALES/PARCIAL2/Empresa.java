@@ -19,9 +19,6 @@ public class Empresa{
         this.nombre = nombre;
         this.DL = 0;
         this.zonas = new Zona[this.DF];
-        for(int i=0;i<this.DF;i++){
-            this.zonas[i] = null;
-        }
     }
     public void agregarZona(Zona zona){
         this.zonas[this.DL++] = zona;
