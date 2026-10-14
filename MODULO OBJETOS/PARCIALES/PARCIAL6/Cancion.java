@@ -24,7 +24,7 @@ public class Cancion {
         this.puntajeOtorgado = 0;
     }
 
-    public void setPuntajeOtorgado(double puntajeOtorgado) {
+    private void setPuntajeOtorgado(double puntajeOtorgado) {
         this.puntajeOtorgado = puntajeOtorgado;
     }
 
@@ -32,7 +32,7 @@ public class Cancion {
         return puntajeOtorgado;
     }
 
-    public void setMejorInterprete(Estudiante mejorInterprete) {
+    private void setMejorInterprete(Estudiante mejorInterprete) {
         this.mejorInterprete = mejorInterprete;
     }
 
