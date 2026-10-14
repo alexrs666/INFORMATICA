@@ -3,31 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PARCIAL3;
+package PARCIAL4;
 
 /**
  *
  * @author Usuario
  */
-public class Inscripcion {
-    private String nombre;
-    private int  codigo;
-    private double monto;
-    private int codigoCurso;
+public class Contenedor {
+    private int codigo;
+    private String empresa;
+    private int peso;
+    private int cantDias;
 
-    public Inscripcion(String nombre, int codigo, double monto, int codigoCurso) {
-        this.nombre = nombre;
+    public Contenedor(int codigo, String empresa, int peso, int cantDias) {
         this.codigo = codigo;
-        this.monto = monto;
-        this.codigoCurso = codigoCurso;
+        this.empresa = empresa;
+        this.peso = peso;
+        this.cantDias = cantDias;
     }
 
-    public double getMonto() {
-        return monto;
+    public int getCantDias() {
+        return cantDias;
     }
-    
+
     public String toString() {
-        return "Inscripcion{" + "nombre=" + nombre + ", codigo=" + codigo + ", monto=" + monto + ", codigoCurso=" + codigoCurso + '}';
+        return " Contenedor{" + "codigo=" + codigo + ", empresa=" + empresa + ", peso=" + peso + ", cantDias=" + cantDias + '}';
     }
+
     
 }
