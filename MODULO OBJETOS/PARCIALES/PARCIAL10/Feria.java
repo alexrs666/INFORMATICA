@@ -30,7 +30,7 @@ public class Feria {
         }
     }
     public void agregarEmpresa(int nroPasillo,Empresa empresa){
-        this.agenda[nroPasillo-1][this.DL[nroPasillo-1]]=empresa;
+        this.agenda[nroPasillo-1][this.DL[nroPasillo-1]++]=empresa;
     }
     public String listarEmpresa(int nroPasillo){
         String aux="";
