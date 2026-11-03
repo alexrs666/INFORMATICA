@@ -22,10 +22,14 @@ procesos
     mientras (HayFlorEnLaEsquina)
       tomarYsumarFlor(cantF)
   fin
-  proceso depositarFlores(E cantF:numero)
+  proceso depositarFlores(E cantF:numero; E avIni:numero; E caIni:numero)
   comenzar
     repetir cantF
+      BloquearEsquina(10, 10)
+      Pos(10, 10)
       depositarFlor
+      Pos(avIni, caIni)
+      LiberarEsquina(10, 10)
   fin
   proceso tomarYsumarPapel(ES cantP:numero)
   comenzar
@@ -37,10 +41,14 @@ procesos
     mientras (HayPapelEnLaEsquina)
       tomarYsumarPapel(cantP)
   fin
-  proceso depositarPapeles(E cantP:numero)
+  proceso depositarPapeles(E cantP:numero; E avIni:numero; E caIni:numero)
   comenzar
     repetir cantP
+      BloquearEsquina(10, 10)
+      Pos(10, 10)
       depositarPapel
+      Pos(avIni, caIni)
+      LiberarEsquina(10, 10)
   fin
   proceso intentosFlores(ES cantF:numero)
   variables
@@ -91,11 +99,7 @@ robots
     caIni:=PosCa
     cantF:=0
     intentosFlores(cantF)
-    BloquearEsquina(10,10)
-    Pos(10,10)
-    depositarFlores(cantF)
-    Pos(avIni,caIni)
-    LiberarEsquina(10,10)
+    depositarFlores(cantF,avIni,caIni)
   fin
   robot Papeleros
   variables
@@ -105,11 +109,7 @@ robots
     caIni:=PosCa
     cantP:=0
     intentosPapeles(cantP)
-    BloquearEsquina(10,10)
-    Pos(10,10)
-    depositarPapeles(cantP)
-    Pos(avIni,caIni)
-    LiberarEsquina(10,10)
+    depositarPapeles(cantP,avIni,caIni)
   fin
 variables
   r1,r2: Floreros
