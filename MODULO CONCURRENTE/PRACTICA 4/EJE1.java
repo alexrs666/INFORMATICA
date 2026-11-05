@@ -50,12 +50,12 @@ procesos
   fin
   proceso avanzarYDejar(ES cantF:numero)
   comenzar
-    mientras(cantF > 0)
-      si (HayFlorEnLaBolsa)
+    mientras(cantF > 0)&(PosCa < 100)
+      si (HayFlorEnLaBolsa)  
         depositarFlor
-      cantF := cantF - 1
-      si (PosCa < 100)
         mover
+      cantF := cantF - 1
+       
   fin
 areas
   areaPC1:AreaPC(1,2,1,100)
@@ -69,35 +69,38 @@ robots
   robot cliente
   variables
     id,cantF,avActual,caSig,ack: numero
+    caIni:numero
   comenzar
     RecibirMensaje(id, servi)
     avActual := PosAv
     mientras (PosCa < 100)
+      caIni:=PosCa
       caSig := PosCa + 1
       Random(cantF, 1, 4)
       EnviarMensaje(id, servi)
       EnviarMensaje(cantF, servi)
       EnviarMensaje(avActual, servi)
       EnviarMensaje(caSig, servi)
-      RecibirMensaje(ack, servi)
-      mover 
+      RecibirMensaje(ack, servi) 
+      Pos(avActual,caSig)
       juntarTodas(cantF)
+      Pos(avActual,caIni)
       avanzarYDejar(cantF)
-    EnviarMensaje(id, servi)
-    EnviarMensaje(0, servi)
+    EnviarMensaje(id,servi)
+    EnviarMensaje(0,servi)
   fin
   robot servidor
   variables
-    id, cantF,avCli,caCli,terminados: numero
-  comenzar
-    terminados:=0
+    id, cantF, avCli, caCli, terminados: numero
+  comenzar  
+    terminados := 0
     EnviarMensaje(1, r1)
     EnviarMensaje(2, r2)
     EnviarMensaje(3, r3)
-    mientras(terminados<3)
+    mientras (terminados < 3)
       RecibirMensaje(id, *)
       recibirDatos(id, cantF, avCli, caCli)
-      si(cantF<>0)
+      si (cantF <> 0)
         Pos(avCli, caCli)
         repetir cantF
           depositarFlor
