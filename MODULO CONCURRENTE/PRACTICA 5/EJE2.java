@@ -21,12 +21,6 @@ procesos
       si(HayFlorEnLaBolsa)
         depositarFlor
   fin
-  proceso etapa(ES cantF:numero)
-  comenzar
-    repetir 10
-      juntarFlores(cantF)
-      mover
-  fin
 areas
   area1: AreaP(1,1,100,1)
   area2: AreaP(1,2,100,2)
