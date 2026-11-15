@@ -3,7 +3,7 @@ procesos
   proceso juntarPapeles(ES cantP: numero)
   comenzar
     mientras (HayPapelEnLaEsquina)
-      tomarFlor
+      tomarPapel
       cantP := cantP + 1
   fin
   proceso recorrerTramo(E cantEsq: numero; ES cantP: numero)
