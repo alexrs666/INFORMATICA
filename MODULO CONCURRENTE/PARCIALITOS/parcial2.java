@@ -8,7 +8,7 @@ procesos
   fin
   proceso recorrerTramo(E cantEsq: numero; ES cantP: numero)
   comenzar
-    repetir cantEsq - 1
+    repetir cantEsq-1
       juntarPapeles(cantP)
       mover
     juntarPapeles(cantP) 
@@ -19,9 +19,8 @@ procesos
   comenzar
     avAnt := PosAv
     caAnt := PosCa
-    BloquearEsquina(3, 20)
-    Pos(3, 20)
     repetir cantP
+      
       si (HayPapelEnLaBolsa)
         depositarPapel
     Pos(avAnt, caAnt)
@@ -29,18 +28,25 @@ procesos
   fin
   proceso limpiarDeposito(E avIni: numero; E caIni: numero)
   comenzar
-    BloquearEsquina(3, 20)
     Pos(3, 20)
     mientras (HayPapelEnLaEsquina)
       tomarPapel
-    Pos(avIni, caIni)
-    LiberarEsquina(3, 20)
   fin
   proceso minimo(E id:numero; E cantP:numero; ES idMin:numero; ES min:numero)
   comenzar
     si (cantP < min)
       min := cantP
       idMin := id
+  fin
+  proceso identificadores(E id:numero;ES cantP:numero)
+  comenzar
+    si(id=1)
+      RecibirMensaje(cantP,r1)
+    sino
+      si(id=2)
+        RecibirMensaje(cantP,r2)
+      sino
+        RecibirMensaje(cantP,r3)
   fin
 areas
   areaR1: AreaP(1, 2, 20, 2)
@@ -91,7 +97,7 @@ robots
     min := 9999
     repetir 3
       RecibirMensaje(id, *)
-      RecibirMensaje(cantP, *)
+      identificadores(id,cantP)
       minimo(id, cantP, idMin, min)
     EnviarMensaje(idMin=1,r1)
     EnviarMensaje(idMin=2,r2)
