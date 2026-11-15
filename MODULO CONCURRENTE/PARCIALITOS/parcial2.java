@@ -32,7 +32,7 @@ procesos
     BloquearEsquina(3, 20)
     Pos(3, 20)
     mientras (HayPapelEnLaEsquina)
-      tomarFlor
+      tomarPapel
     Pos(avIni, caIni)
     LiberarEsquina(3, 20)
   fin
