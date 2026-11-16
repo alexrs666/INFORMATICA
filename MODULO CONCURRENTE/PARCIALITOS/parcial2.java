@@ -20,9 +20,11 @@ procesos
     avAnt := PosAv
     caAnt := PosCa
     repetir cantP
+      BloquearEsquina(3,20)
       Pos(3,20)
       depositarPapel
       Pos(avAnt, caAnt)
+      LiberarEsquina(3,20)
   fin
   proceso limpiarDeposito(E avIni: numero; E caIni: numero)
   comenzar
