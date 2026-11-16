@@ -14,16 +14,16 @@ procesos
       tomarFlor
       cantF:=cantF + 1
   fin
-  proceso escalon(E altura:numero;E ancho:numero;ES cantF:numero;ES cantE:numero)
+  proceso escalon(E lado:numero;ES cantF:numero;ES cantE:numero)
   comenzar
-    repetir altura
+    repetir lado
       juntarFlores(cantF)
       mover
       cantE:=cantE + 1
     juntarFlores(cantF)
     cantE:=cantE + 1
     derecha
-    repetir ancho
+    repetir lado
       juntarFlores(cantF)
       mover
       cantE:=cantE + 1
@@ -33,7 +33,7 @@ procesos
   proceso cuadrado(E lados:numero;ES cantF:numero;ES cantE:numero)
   comenzar
     repetir 2
-      escalon(lados,lados,cantF,cantE)
+      escalon(lados,cantF,cantE)
       derecha
   fin
   proceso depositarEsq(E cantF:numero)
@@ -82,9 +82,9 @@ procesos
       idMax:=id
   fin
 areas
-  areaR1: AreaP(1, 1, 5, 14)
-  areaR2: AreaP(7, 1, 11, 14)
-  areaR3: AreaP(14,1,18,14)
+  areaR1: AreaP(1, 1, 5, 16)
+  areaR2: AreaP(7, 1, 11, 16)
+  areaR3: AreaP(14,1,18,16)
   areaCoordi: AreaP(51,51,51,51)
   areaDep: AreaPC(50, 50, 50, 50)
 robots
