@@ -20,17 +20,16 @@ procesos
     avAnt := PosAv
     caAnt := PosCa
     repetir cantP
-      
-      si (HayPapelEnLaBolsa)
-        depositarPapel
-    Pos(avAnt, caAnt)
-    LiberarEsquina(3, 20)
+      Pos(3,20)
+      depositarPapel
+      Pos(avAnt, caAnt)
   fin
   proceso limpiarDeposito(E avIni: numero; E caIni: numero)
   comenzar
     Pos(3, 20)
     mientras (HayPapelEnLaEsquina)
       tomarPapel
+    Pos(avIni,caIni)
   fin
   proceso minimo(E id:numero; E cantP:numero; ES idMin:numero; ES min:numero)
   comenzar
@@ -68,21 +67,19 @@ robots
     RecibirMensaje(id, jefe)  
     si (id=1)
       recorrerTramo(20, cantP)
-      depositarPapeles(cantP)
       EnviarMensaje(V, r2)
     sino
       si (id=2)
         RecibirMensaje(puede, r1)
         recorrerTramo(21, cantP)
-        depositarPapeles(cantP)
         EnviarMensaje(V, r3)
       sino
         si (id=3)
           RecibirMensaje(puede, r2)
           recorrerTramo(22, cantP)
-          depositarPapeles(cantP)
     EnviarMensaje(id, jefe)
     EnviarMensaje(cantP, jefe)
+    depositarPapeles(cantP)
     RecibirMensaje(puede, jefe)
     si (puede)
       limpiarDeposito(avIni, caIni)
