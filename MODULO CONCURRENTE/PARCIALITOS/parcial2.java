@@ -28,10 +28,12 @@ procesos
   fin
   proceso limpiarDeposito(E avIni: numero; E caIni: numero)
   comenzar
+    BloquearEsquina(3,20)
     Pos(3, 20)
     mientras (HayPapelEnLaEsquina)
       tomarPapel
     Pos(avIni,caIni)
+    LiberarEsquina(3,20)
   fin
   proceso minimo(E id:numero; E cantP:numero; ES idMin:numero; ES min:numero)
   comenzar
